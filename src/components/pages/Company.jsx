@@ -3,7 +3,7 @@ function Company(){
     return(
 
         <div>
-            <p>Empresa</p>
+            <h1>Empresa</h1>
         </div>
     )
 }
