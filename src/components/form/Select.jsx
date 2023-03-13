@@ -13,8 +13,6 @@ function Select({ text, name, options, handleOnchange, value, }){
                 ))}
             </select>
         </div>  
-
-
     )
 }
 

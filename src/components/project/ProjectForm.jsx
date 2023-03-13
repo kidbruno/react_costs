@@ -44,7 +44,7 @@ function ProjectForm({ btnText }){
             <Select
                 name={"category_id"}
                 text={"Selecione uma categoria"}
-                option={categories}
+                options={categories}
                 
             />
             <SubmitButton 
