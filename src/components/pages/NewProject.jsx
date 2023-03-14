@@ -7,10 +7,10 @@ function NewProject(){
     const history = useHistory()
 
     function createPost(project){
-        project.cost =0
-        project.sevices = []
+        project.cost = 0
+        project.services = []
 
-        fetch('http:/localhost:5000/projects', {
+        fetch("http:/localhost:5000/projects", {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -19,7 +19,7 @@ function NewProject(){
         }).then((resp) => resp.json())
         .then((data) => {
             console.log(data)
-            //redirect
+            history.push('/projects', {message: 'Projeto criado com sucesso!' })
         })
         .catch(err => console.log(err))
 
@@ -30,7 +30,7 @@ function NewProject(){
         <div className={styles.newproject_container}>
             <h1>Criar Projeto</h1>
             <p>Crie seu projeto para adicionar os serviços</p>
-            <ProjectForm handleSubmit={} btnText="Criar Projeto"/>
+            <ProjectForm handleSubmit={createPost} btnText="Criar Projeto"/>
         </div>
 
     )
