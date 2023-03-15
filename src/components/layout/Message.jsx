@@ -29,8 +29,7 @@ function Message({ type, msg }){
                     {msg}
                 </div>
             )}
-        </>
-       
+        </> 
     )
 }
 
