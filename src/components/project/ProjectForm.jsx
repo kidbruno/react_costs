@@ -5,7 +5,7 @@ import Input from '../form/Input'
 import Select from '../form/Select'
 import SubmitButton from '../form/SubmitButton'
 
-function ProjectForm({ bhandleSubmit, btnText, projectData }){
+function ProjectForm({ handleSubmit, btnText, projectData }){
     
     const [categories, setCategories] = useState([])
     const [project, setProject] = useState(projectData || {})
@@ -28,7 +28,7 @@ function ProjectForm({ bhandleSubmit, btnText, projectData }){
     const submit = (e) =>{
         e.preventDefault()
         console.log(project)
-        // handleSubmit(project)
+        handleSubmit(project)
     }
 
     function handleChange(e){
@@ -55,8 +55,8 @@ function ProjectForm({ bhandleSubmit, btnText, projectData }){
                 name="name"
                 placeholder="Insira o nome do Projeto"
                 handleOnChange={handleChange}
-                // value={project.name ? project.name : ''}
-
+                value={project.name ? project.name : ''}
+                
             />
            <Input 
                 type="number"
@@ -64,7 +64,7 @@ function ProjectForm({ bhandleSubmit, btnText, projectData }){
                 name="budget" 
                 placeholder="Insira o orçamento total"
                 handleOnChange={handleChange}
-                // value={project.budget ? project.budget : ''}
+                value={project.budget ? project.budget : ''}
                 
             />
             <Select
