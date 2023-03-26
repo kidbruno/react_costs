@@ -1,13 +1,13 @@
 import { parse, v4 as uuidv4 } from 'uuid'
 
- import { useParams } from 'react-router-dom'
- import { useState, useEffect } from 'react'
- import Loading from '../layout/Loading'
- import Container from '../layout/Container'
- import styles from './Project.module.css'
- import ProjectForm from '../project/ProjectForm'
- import Message from '../layout/Message'
- import ServiceForm from '../service/ServiceForm'
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import Loading from '../layout/Loading'
+import Container from '../layout/Container'
+import styles from './Project.module.css'
+import ProjectForm from '../project/ProjectForm'
+import Message from '../layout/Message'
+import ServiceForm from '../service/ServiceForm'
 import ServiceCard from '../service/ServiceCard'
 
 function Project(){
@@ -35,6 +35,7 @@ function Project(){
             .then((resp) => resp.json())
             .then((data) => {
                 setProject(data)
+                setServices(data.services)
             })
             .catch((err) => console.log(err))
        }, 1000)
@@ -76,8 +77,33 @@ function Project(){
         setShowServiceForm(!showServiceForm)
     }
 
-    function removeService(){
+    function removeService(id, cost){
         
+        SetMessage('')
+
+        const sevicesUpdated = project.services.filter(
+            (service) => service.id !== id
+        )
+
+        const projectUpdated = project
+
+        projectUpdated.services = sevicesUpdated
+        projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
+
+        fetch(`http://localhost:5000/projects/${projectUpdated.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(projectUpdated)
+        })
+            .then((resp) => resp.json())
+            .then((data) => {
+                setProject(projectUpdated)
+                setServices(sevicesUpdated)
+                SetMessage('Serviço removido com sucesso!')
+            })
+            .catch((err) => console.error(err))
     }
 
     function createService(project){
@@ -114,9 +140,7 @@ function Project(){
         })
         .then((resp) => resp.json())
         .then((data) => {
-            //view services
-            console.log(data)
-
+            setShowServiceForm(false)
         })
         .catch((err) => console.log(err))
 

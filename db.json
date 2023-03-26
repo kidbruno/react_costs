@@ -7,58 +7,20 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": [
-        {
-          "name": "Intro Node",
-          "cost": "150",
-          "description": "Introdução ao Node",
-          "id": "217f5b44-076c-4420-88af-b6a204b25e73"
-        },
-        {
-          "name": "teste",
-          "cost": "200",
-          "description": "kkk",
-          "id": "3655c5bd-e8c1-42cb-8e62-50bc034b32b3"
-        }
-      ],
+      "cost": -600,
+      "services": [],
       "id": 1
     },
     {
-      "name": "Curso Cloud",
-      "budget": "2000",
+      "name": "Project teste",
+      "budget": "3000",
       "category": {
-        "id": "1",
-        "name": "Infra"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": [
-        {
-          "name": "intro",
-          "cost": "150",
-          "description": "fdshfjk",
-          "id": "02231e1b-83b3-43c3-af8a-d931e8ba9cdd"
-        },
-        {
-          "name": "fdsds",
-          "cost": "39",
-          "description": "sds",
-          "id": "8546ab37-387c-4e03-a9b0-fb8bc53337f6"
-        },
-        {
-          "name": "fdfsd",
-          "cost": "234",
-          "description": "rewrew",
-          "id": "b138740a-7484-466a-ac45-5e127e6021bf"
-        },
-        {
-          "name": "erwerwe",
-          "cost": "22",
-          "description": "33",
-          "id": "ef49a2bd-0268-44a5-ad80-308f04b9a440"
-        }
-      ],
-      "id": 2
+      "cost": -5000,
+      "services": [],
+      "id": 3
     }
   ],
   "categories": [
